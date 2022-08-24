@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Codejam</title>
+</head>
+<body>
+    <div class="main-container">
+        <div class="instruction-text">Choose an ancient</div>
+        <div class="background" style="background-image: url('/assets/bg.jpg');">
+            <div class="ancients-container">
+                <div class="ancient-card" style="background-image: url('/assets/Ancients/Azathoth.png');"></div>
+                <div class="ancient-card" style="background-image: url('/assets/Ancients/Cthulthu.png');"></div>
+                <div class="ancient-card" style="background-image: url('/assets/Ancients/IogSothoth.png');"></div>
+                <div class="ancient-card" style="background-image: url('/assets/Ancients/ShubNiggurath.png');"></div>
+            </div>
+            <div class="difficulty-container">
+                <div class="difficulty diff-inactive">Very easy</div>
+                <div class="difficulty diff-inactive">Easy</div>
+                <div class="difficulty diff-inactive">Medium</div>
+                <div class="difficulty diff-inactive">Hard</div>
+                <div class="difficulty diff-inactive">Very hard</div>
+            </div>
+            <div class="deck-container">
+                <div class="current-state current-state-inactive">
+                    <div class="stage-container">
+                        <span class="stage-text">First stage</span>
+                        <div class="dots-container">
+                            <div class="dot green"></div>
+                            <div class="dot brown"></div>
+                            <div class="dot blue"></div>
+                        </div>
+                    </div>
+                    <div class="stage-container">
+                        <span class="stage-text">Second stage</span>
+                        <div class="dots-container">
+                            <div class="dot green"></div>
+                            <div class="dot brown"></div>
+                            <div class="dot blue"></div>
+                        </div>
+                    </div>
+                    <div class="stage-container">
+                        <span class="stage-text">Third stage</span>
+                        <div class="dots-container">
+                            <div class="dot green"></div>
+                            <div class="dot brown"></div>
+                            <div class="dot blue"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cards-container">
+                    <div class="deck deck-inactive" style="background-image: url('/assets/mythicCardBackground.png')"></div>
+                <div class="last-card last-card-inactive" style="background-image: url('/assets/MythicCards/blue/blue1.png');"></div>
+                </div>
+                <span class="shuffle-btn shuffle-non-active">Shuffle cards</span>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="/js/script.js"></script>
+</body>
+</html>

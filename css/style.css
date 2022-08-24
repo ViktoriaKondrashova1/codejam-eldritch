@@ -1,0 +1,211 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: black;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+.instruction-text {
+    position: absolute;
+    left: 42%;
+    font-size: 30px;
+}
+
+
+.background {
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    gap: 20px;
+    height: 100vh;
+    justify-content: space-between;
+    width: 100vw;
+}
+
+.ancients-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 40px;
+    min-width: 30%;
+    padding: 50px;
+    justify-content: center;
+}
+
+.difficulty-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100vh;
+    justify-content: center;
+}
+
+.deck-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 90px;
+    justify-content: center;
+    min-width: 30%;
+}
+
+.ancient-card {
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    box-sizing: border-box;
+    cursor: pointer;
+    height: 260px;
+    width: 200px;
+    box-shadow: 10px -10px 10px rgba(0, 0, 0, .5);
+}
+
+.ancient-card-active {
+    box-shadow: 10px -10px 10px rgba(69,129,142, .5);
+}
+
+.difficulty {
+    border: 2px solid #4B4949;
+    box-sizing: border-box;
+    background-color: rgba(153, 153, 153, .8);
+    box-shadow: 5px -5px 10px rgba(0, 0, 0, .5);
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 5px;
+    text-align: center;
+    width: 150px;
+}
+
+.difficulty:hover {
+    background-color: rgba(91, 91, 91, .5);
+}
+
+.difficulty-active {
+    background-color: rgba(162,196,201, .8);
+    box-shadow: 10px -10px 10px rgba(69,129,142, .5);
+}
+
+.diff-inactive {
+    cursor: default;
+    color: rgba(0, 0, 0, .5);
+    background-color: rgba(153, 153, 153, .5);
+}
+
+.diff-inactive:hover {
+    background-color: rgba(153, 153, 153, .5);
+}
+
+.shuffle-btn {
+    border: 2px solid #4B4949;
+    box-sizing: border-box;
+    background-color: rgba(153, 153, 153, .8);
+    box-shadow: 5px -5px 10px rgba(0, 0, 0, .5);
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 5px;
+    text-align: center;
+    width: 150px;
+}
+
+.shuffle-btn:hover {
+    background-color: rgba(91, 91, 91, .5);
+}
+
+.shuffle-inactive {
+    display: none;
+}
+
+.shuffle-non-active {
+    cursor: default;
+    color: rgba(0, 0, 0, .5);
+    background-color: rgba(153, 153, 153, .5);
+}
+
+.shuffle-non-active:hover {
+    background-color: rgba(153, 153, 153, .5);
+}
+
+.current-state {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-height: 30%;
+    background-color: rgba(91, 91, 91, .5);
+    padding: 30px;
+}
+
+.current-state-inactive {
+    display: none;
+}
+
+.stage-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.dots-container {
+    align-items: center;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}   
+
+.dot {
+    align-items: center;
+    border-radius: 50%;
+    display: flex;
+    height: 30px;
+    justify-content: center;
+    width: 30px;
+}
+
+.green {
+    background-color: #93C47D;
+}
+
+.brown {
+    background-color: #96885E;
+}
+
+.blue {
+    background-color: #6FA8DC;
+}
+
+.cards-container {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.deck, .last-card {
+    background-size: cover;
+    height: 292px;
+    width: 200px;
+    box-shadow: 10px -10px 10px rgba(0, 0, 0, .5);
+}
+
+.deck {
+    cursor: pointer;
+}
+
+.last-card-inactive {
+    display: none;
+}
+
+.deck-inactive {
+    display: none;
+}
+
