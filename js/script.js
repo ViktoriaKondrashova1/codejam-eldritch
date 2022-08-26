@@ -135,6 +135,16 @@ function CardsForStages(ancient) {
 
 let selectedAncient;
 
+let greenDeckFirstStage = [];
+let brownDeckFirstStage = [];
+let blueDeckFirstStage = [];
+let greenDeckSecondStage = [];
+let brownDeckSecondStage = [];
+let blueDeckFSecondStage = [];
+let greenDeckThirdStage = [];
+let brownDeckThirdStage = [];
+let blueDeckThirdStage = [];
+
 ancientsContainer.onclick = function(event) {
     let target = event.target;
     if (target.className != 'ancient-card') return;
@@ -147,6 +157,31 @@ ancientsContainer.onclick = function(event) {
     } else if (target.id == 'iogSothoth') {
         CardsForStages(ancientsData[2]);
     } else CardsForStages(ancientsData[3]);
+
+    for (let i = 0; i < firstStageDeck.length; i++) {
+        if (firstStageDeck[i].color == 'green') {
+            greenDeckFirstStage.push(firstStageDeck[i])
+        } else if (firstStageDeck[i].color == 'brown') {
+            brownDeckFirstStage.push(firstStageDeck[i])
+        } else blueDeckFirstStage.push(firstStageDeck[i])
+    }    
+
+    for (let i = 0; i < secondStageDeck.length; i++) {
+        if (secondStageDeck[i].color == 'green') {
+            greenDeckSecondStage.push(secondStageDeck[i])
+        } else if (secondStageDeck[i].color == 'brown') {
+            brownDeckSecondStage.push(secondStageDeck[i])
+        } else blueDeckFSecondStage.push(secondStageDeck[i])
+    }   
+
+    for (let i = 0; i < thirdStageDeck.length; i++) {
+        if (thirdStageDeck[i].color == 'green') {
+            greenDeckThirdStage.push(thirdStageDeck[i])
+        } else if (thirdStageDeck[i].color == 'brown') {
+            brownDeckThirdStage.push(thirdStageDeck[i])
+        } else blueDeckThirdStage.push(thirdStageDeck[i])
+    }  
+    
 };
 
 function chooseAncient(anCard) {
@@ -163,58 +198,11 @@ function chooseAncient(anCard) {
     }); 
   };
 
-/// делим колоды по цветам и этапам
-
-let greenDeckFirstStage = [];
-let brownDeckFirstStage = [];
-let blueDeckFirstStage = [];
-let greenDeckSecondStage = [];
-let brownDeckSecondStage = [];
-let blueDeckFSecondStage = [];
-let greenDeckThirdStage = [];
-let brownDeckThirdStage = [];
-let blueDeckThirdStage = [];
-
-console.log(firstStageDeck)
-
-function getDecksForStages() {
-    
-    greenDeckFirstStage = firstStageDeck.filter(card => card.color == 'green');
-    brownDeckFirstStage = firstStageDeck.filter(card => card.color == 'brown');
-    blueDeckFirstStage = firstStageDeck.filter(card => card.color == 'blue');
-}
-
-getDecksForStages();
-
-console.log(brownDeckFirstStage)
-
-//greenDeckFirstStage = greenDeckFirstStage.flat();
-//brownDeckFirstStage = brownDeckFirstStage.flat();
-//blueDeckFirstStage = blueDeckFirstStage.flat();
-
-greenDeckSecondStage.push(secondStageDeck.filter(card => card.color == 'green'));
-brownDeckSecondStage.push(secondStageDeck.filter(card => card.color == 'brown'));
-blueDeckFSecondStage.push(secondStageDeck.filter(card => card.color == 'blue'));
-
-greenDeckSecondStage = greenDeckSecondStage.flat();
-brownDeckSecondStage = brownDeckSecondStage.flat();
-blueDeckFSecondStage = blueDeckFSecondStage.flat();
-
-greenDeckThirdStage.push(thirdStageDeck.filter(card => card.color == 'green'));
-brownDeckThirdStage.push(thirdStageDeck.filter(card => card.color == 'brown'));
-blueDeckThirdStage.push(thirdStageDeck.filter(card => card.color == 'blue'));
-
-greenDeckThirdStage = greenDeckThirdStage.flat();
-brownDeckThirdStage = brownDeckThirdStage.flat();
-blueDeckThirdStage = blueDeckThirdStage.flat();
+/// создаем трекер
 
 function createTracker() {
 
-    firstStageGreenDot.textContent = ('2');
-}
+    firstStageGreenDot.textContent = (greenDeckFirstStage.length);
+};
 
 createTracker();
-
-
-
-
