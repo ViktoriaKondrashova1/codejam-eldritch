@@ -145,6 +145,10 @@
     padding: 30px;
 }
 
+.stage-text-act {
+    color: #19a7bc;
+}
+
 .current-state-inactive {
     display: none;
 }
@@ -190,11 +194,17 @@
     gap: 30px;
 }
 
-.deck, .last-card {
+.deck {
     background-size: cover;
     height: 292px;
     width: 200px;
     box-shadow: 10px -10px 10px rgba(0, 0, 0, .5);
+}
+
+.last-card {
+    background-size: cover;
+    height: 292px;
+    width: 200px;
 }
 
 .deck {

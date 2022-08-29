@@ -17,6 +17,7 @@ const thirdStageGreenDot = document.querySelector('.third-stage-green');
 const thirdStageBrownDot = document.querySelector('.third-stage-brown');
 const thirdStageBlueDot = document.querySelector('.third-stage-blue');
 
+
 import brownCards from './brownCards.js';
 import blueCards from './blueCards.js';
 import greenCards from './greenCards.js';
@@ -131,7 +132,7 @@ function CardsForStages(ancient) {
 
 };
 
-/// нажатие на древнего 
+/// нажатие на древнего и формирование колоды
 
 let selectedAncient;
 
@@ -146,6 +147,7 @@ let brownDeckThirdStage = [];
 let blueDeckThirdStage = [];
 
 ancientsContainer.onclick = function(event) {
+    
     let target = event.target;
     if (target.className != 'ancient-card') return;
     chooseAncient(target);
@@ -181,6 +183,45 @@ ancientsContainer.onclick = function(event) {
             brownDeckThirdStage.push(thirdStageDeck[i])
         } else blueDeckThirdStage.push(thirdStageDeck[i])
     }  
+
+    firstStageGreenDot.textContent = (greenDeckFirstStage.length);
+    firstStageBrownDot.textContent = (brownDeckFirstStage.length);
+    firstStageBlueDot.textContent = (blueDeckFirstStage.length);
+    secondStageGreenDot.textContent = (greenDeckSecondStage.length);
+    secondStageBrownDot.textContent = (brownDeckSecondStage.length);
+    secondStageBlueDot.textContent = (blueDeckFSecondStage.length);
+    thirdStageGreenDot.textContent = (greenDeckThirdStage.length);
+    thirdStageBrownDot.textContent = (brownDeckThirdStage.length);
+    thirdStageBlueDot.textContent = (blueDeckThirdStage.length);
+
+    console.log(firstStageDeck)
+    console.log(secondStageDeck)
+    console.log(thirdStageDeck)
+    
+    deck.onclick = function() {
+        
+        const firstStageText = document.querySelector('.first');
+        const secondStageText = document.querySelector('.second');
+        const thirdStageText = document.querySelector('.third');
+        
+        if (firstStageDeck.length >= 1) {
+            lastCard.style.backgroundImage = `url(${firstStageDeck[0].cardFace})`;
+            firstStageDeck.shift();
+            firstStageText.classList.add('stage-text-act');
+        } else if (secondStageDeck.length >= 1) {
+            lastCard.style.backgroundImage = `url(${secondStageDeck[0].cardFace})`;
+            secondStageDeck.shift();
+            firstStageText.classList.remove('stage-text-act');
+            secondStageText.classList.add('stage-text-act');
+        } else if (thirdStageDeck.length >= 1) {
+            lastCard.style.backgroundImage = `url(${thirdStageDeck[0].cardFace})`;
+            thirdStageDeck.shift();
+            secondStageText.classList.remove('stage-text-act');
+            thirdStageText.classList.add('stage-text-act');
+        } 
+
+        for (let i = 0; i < greenDeckFirstStage.length; i++)
+    };
     
 };
 
@@ -197,12 +238,3 @@ function chooseAncient(anCard) {
         element.classList.remove('diff-inactive');
     }); 
   };
-
-/// создаем трекер
-
-function createTracker() {
-
-    firstStageGreenDot.textContent = (greenDeckFirstStage.length);
-};
-
-createTracker();
