@@ -197,6 +197,8 @@ ancientsContainer.onclick = function(event) {
     console.log(firstStageDeck)
     console.log(secondStageDeck)
     console.log(thirdStageDeck)
+
+    /// показывает колоду при клике на рубашку
     
     deck.onclick = function() {
         
@@ -220,9 +222,41 @@ ancientsContainer.onclick = function(event) {
             thirdStageText.classList.add('stage-text-act');
         } 
 
-        for (let i = 0; i < greenDeckFirstStage.length; i++)
-    };
-    
+        /// трекер
+
+        if (greenDeckFirstStage.length != 0 && firstStageText.classList.contains('stage-text-act')) {
+            firstStageGreenDot.textContent = (greenDeckFirstStage.length - 1);
+            greenDeckFirstStage.shift()
+        } else if (greenDeckFirstStage.length === 0 && brownDeckFirstStage != 0) {
+            firstStageBrownDot.textContent = (brownDeckFirstStage.length - 1);
+            brownDeckFirstStage.shift()
+        } else if (brownDeckFirstStage.length === 0 && blueDeckFirstStage != 0) {
+            firstStageBlueDot.textContent = (blueDeckFirstStage.length - 1);
+            blueDeckFirstStage.shift()
+        };
+
+        if (greenDeckSecondStage.length != 0 && secondStageText.classList.contains('stage-text-act')) {
+            secondStageGreenDot.textContent = (greenDeckSecondStage.length - 1);
+            greenDeckSecondStage.shift()
+        } else if (greenDeckSecondStage.length === 0 && brownDeckSecondStage != 0) {
+            secondStageBrownDot.textContent = (brownDeckSecondStage.length - 1);
+            brownDeckSecondStage.shift()
+        } else if (brownDeckSecondStage.length === 0 && blueDeckFSecondStage != 0) {
+            secondStageBlueDot.textContent = (blueDeckFSecondStage.length - 1);
+            blueDeckFSecondStage.shift()
+        };
+
+        if (greenDeckThirdStage.length != 0 && thirdStageText.classList.contains('stage-text-act')) {
+            thirdStageGreenDot.textContent = (greenDeckThirdStage.length - 1);
+            greenDeckThirdStage.shift()
+        } else if (greenDeckThirdStage.length === 0 && brownDeckThirdStage != 0) {
+            thirdStageBrownDot.textContent = (brownDeckThirdStage.length - 1);
+            brownDeckThirdStage.shift()
+        } else if (brownDeckThirdStage.length === 0 && blueDeckThirdStage != 0) {
+            thirdStageBlueDot.textContent = (blueDeckThirdStage.length - 1);
+            blueDeckThirdStage.shift()
+        };
+    }; 
 };
 
 function chooseAncient(anCard) {
