@@ -52,6 +52,18 @@ function chooseLevel(level) {
     instructionText.textContent = 'Shuffle cards';
 
     shuffleBtn.classList.remove('shuffle-non-active');
+
+    firstStageGreenDot.textContent = (greenDeckFirstStage.length);
+    firstStageBrownDot.textContent = (brownDeckFirstStage.length);
+    firstStageBlueDot.textContent = (blueDeckFirstStage.length);
+    secondStageGreenDot.textContent = (greenDeckSecondStage.length);
+    secondStageBrownDot.textContent = (brownDeckSecondStage.length);
+    secondStageBlueDot.textContent = (blueDeckFSecondStage.length);
+    thirdStageGreenDot.textContent = (greenDeckThirdStage.length);
+    thirdStageBrownDot.textContent = (brownDeckThirdStage.length);
+    thirdStageBlueDot.textContent = (blueDeckThirdStage.length);
+
+    console.log(firstStageBrownDot.textContent)
   };
 
 /// нажатие на shuffle cards 
@@ -84,6 +96,25 @@ let brownCardsList = brownCards;
 let blueCardsList = blueCards;
 
 function CardsForStages(ancient) {
+    
+    firstStageDeck.length = 0;
+    secondStageDeck.length = 0;
+    thirdStageDeck.length = 0;
+    
+    greenDeckFirstStage.length = 0;
+    brownDeckFirstStage.length = 0;
+    blueDeckFirstStage.length = 0;
+    greenDeckSecondStage.length = 0;
+    brownDeckSecondStage.length = 0;
+    blueDeckFSecondStage.length = 0;
+    greenDeckThirdStage.length = 0;
+    brownDeckThirdStage.length = 0;
+    blueDeckThirdStage.length = 0;
+
+    console.log(greenDeckFirstStage)
+    console.log(brownDeckFirstStage)
+    console.log(blueDeckFirstStage)
+    console.log(firstStageGreenDot.textContent)
     
     for (let i = 0; i < ancient.firstStage.greenCards; i++) {
         firstStageDeck.push(greenCardsList[getRandomNum(greenCardsList)]);
@@ -184,16 +215,6 @@ ancientsContainer.onclick = function(event) {
         } else blueDeckThirdStage.push(thirdStageDeck[i])
     }  
 
-    firstStageGreenDot.textContent = (greenDeckFirstStage.length);
-    firstStageBrownDot.textContent = (brownDeckFirstStage.length);
-    firstStageBlueDot.textContent = (blueDeckFirstStage.length);
-    secondStageGreenDot.textContent = (greenDeckSecondStage.length);
-    secondStageBrownDot.textContent = (brownDeckSecondStage.length);
-    secondStageBlueDot.textContent = (blueDeckFSecondStage.length);
-    thirdStageGreenDot.textContent = (greenDeckThirdStage.length);
-    thirdStageBrownDot.textContent = (brownDeckThirdStage.length);
-    thirdStageBlueDot.textContent = (blueDeckThirdStage.length);
-
     console.log(firstStageDeck)
     console.log(secondStageDeck)
     console.log(thirdStageDeck)
@@ -272,3 +293,5 @@ function chooseAncient(anCard) {
         element.classList.remove('diff-inactive');
     }); 
   };
+
+  console.log('Работает только уровень medium, но все четыре древних работают. Еще проблема есть, что не смогла правильно обнулить колоду при выборе другого древнего, поэтому нужно обновлять страницу.')

@@ -17,10 +17,9 @@
 
 .instruction-text {
     position: absolute;
-    left: 42%;
-    font-size: 30px;
+    left: 40%;
+    font-size: 25px;
 }
-
 
 .background {
     background-position: 50%;
