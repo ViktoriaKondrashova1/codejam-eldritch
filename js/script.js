@@ -82,7 +82,7 @@ shuffleBtn.addEventListener('click', shuffleCardsBtn);
 /// возвращает рандомное число
 
 function getRandomNum(arr) {
-    return Math.floor(Math.random() * (arr.length - 1)) + 1;
+    return Math.floor(Math.random() * (arr.length - 1));
   };
 
 /// создание колод карт для каждого этапа
@@ -110,11 +110,6 @@ function CardsForStages(ancient) {
     greenDeckThirdStage.length = 0;
     brownDeckThirdStage.length = 0;
     blueDeckThirdStage.length = 0;
-
-    console.log(greenDeckFirstStage)
-    console.log(brownDeckFirstStage)
-    console.log(blueDeckFirstStage)
-    console.log(firstStageGreenDot.textContent)
     
     for (let i = 0; i < ancient.firstStage.greenCards; i++) {
         firstStageDeck.push(greenCardsList[getRandomNum(greenCardsList)]);
@@ -215,10 +210,6 @@ ancientsContainer.onclick = function(event) {
         } else blueDeckThirdStage.push(thirdStageDeck[i])
     }  
 
-    console.log(firstStageDeck)
-    console.log(secondStageDeck)
-    console.log(thirdStageDeck)
-
     /// показывает колоду при клике на рубашку
     
     deck.onclick = function() {
@@ -228,55 +219,65 @@ ancientsContainer.onclick = function(event) {
         const thirdStageText = document.querySelector('.third');
         
         if (firstStageDeck.length >= 1) {
-            lastCard.style.backgroundImage = `url(${firstStageDeck[0].cardFace})`;
-            firstStageDeck.shift();
+            let indexFirst = getRandomNum(firstStageDeck);
+            console.log(indexFirst)
+            lastCard.style.backgroundImage = `url(${firstStageDeck[indexFirst].cardFace})`;
+            
+            if (firstStageDeck[indexFirst].color === 'green') {
+                firstStageGreenDot.textContent = (greenDeckFirstStage.length - 1);
+                greenDeckFirstStage.shift()
+            } else if (firstStageDeck[indexFirst].color === 'brown') {
+                firstStageBrownDot.textContent = (brownDeckFirstStage.length - 1);
+                brownDeckFirstStage.shift()
+            } else if (firstStageDeck[indexFirst].color === 'blue') {
+                firstStageBlueDot.textContent = (blueDeckFirstStage.length - 1);
+                blueDeckFirstStage.shift()
+            }
+
+            firstStageDeck.splice(indexFirst, 1);
+            console.log(firstStageDeck)
             firstStageText.classList.add('stage-text-act');
         } else if (secondStageDeck.length >= 1) {
-            lastCard.style.backgroundImage = `url(${secondStageDeck[0].cardFace})`;
-            secondStageDeck.shift();
+            let indexSecond = getRandomNum(secondStageDeck);
+            console.log(indexSecond)
+            lastCard.style.backgroundImage = `url(${secondStageDeck[indexSecond].cardFace})`;
+
+            if (secondStageDeck[indexSecond].color === 'green') {
+                secondStageGreenDot.textContent = (greenDeckSecondStage.length - 1);
+                greenDeckSecondStage.shift()
+            } else if (secondStageDeck[indexSecond].color === 'brown') {
+                secondStageBrownDot.textContent = (brownDeckSecondStage.length - 1);
+                brownDeckSecondStage.shift()
+            } else if (secondStageDeck[indexSecond].color === 'blue') {
+                secondStageBlueDot.textContent = (blueDeckFSecondStage.length - 1);
+                blueDeckFSecondStage.shift()
+            }
+
+            secondStageDeck.splice(indexSecond, 1);
+            console.log(secondStageDeck)
             firstStageText.classList.remove('stage-text-act');
             secondStageText.classList.add('stage-text-act');
         } else if (thirdStageDeck.length >= 1) {
-            lastCard.style.backgroundImage = `url(${thirdStageDeck[0].cardFace})`;
-            thirdStageDeck.shift();
+            let indexThird = getRandomNum(thirdStageDeck);
+            console.log(indexThird)
+            lastCard.style.backgroundImage = `url(${thirdStageDeck[indexThird].cardFace})`;
+
+            if (thirdStageDeck[indexThird].color === 'green') {
+                thirdStageGreenDot.textContent = (greenDeckThirdStage.length - 1);
+                greenDeckThirdStage.shift()
+            } else if (thirdStageDeck[indexThird].color === 'brown') {
+                thirdStageBrownDot.textContent = (brownDeckThirdStage.length - 1);
+                brownDeckThirdStage.shift()
+            } else if (thirdStageDeck[indexThird].color === 'blue') {
+                thirdStageBlueDot.textContent = (blueDeckThirdStage.length - 1);
+                blueDeckThirdStage.shift()
+            }
+
+            thirdStageDeck.splice(indexThird, 1);
+            console.log(thirdStageDeck)
             secondStageText.classList.remove('stage-text-act');
             thirdStageText.classList.add('stage-text-act');
         } 
-
-        /// трекер
-
-        if (greenDeckFirstStage.length != 0 && firstStageText.classList.contains('stage-text-act')) {
-            firstStageGreenDot.textContent = (greenDeckFirstStage.length - 1);
-            greenDeckFirstStage.shift()
-        } else if (greenDeckFirstStage.length === 0 && brownDeckFirstStage != 0) {
-            firstStageBrownDot.textContent = (brownDeckFirstStage.length - 1);
-            brownDeckFirstStage.shift()
-        } else if (brownDeckFirstStage.length === 0 && blueDeckFirstStage != 0) {
-            firstStageBlueDot.textContent = (blueDeckFirstStage.length - 1);
-            blueDeckFirstStage.shift()
-        };
-
-        if (greenDeckSecondStage.length != 0 && secondStageText.classList.contains('stage-text-act')) {
-            secondStageGreenDot.textContent = (greenDeckSecondStage.length - 1);
-            greenDeckSecondStage.shift()
-        } else if (greenDeckSecondStage.length === 0 && brownDeckSecondStage != 0) {
-            secondStageBrownDot.textContent = (brownDeckSecondStage.length - 1);
-            brownDeckSecondStage.shift()
-        } else if (brownDeckSecondStage.length === 0 && blueDeckFSecondStage != 0) {
-            secondStageBlueDot.textContent = (blueDeckFSecondStage.length - 1);
-            blueDeckFSecondStage.shift()
-        };
-
-        if (greenDeckThirdStage.length != 0 && thirdStageText.classList.contains('stage-text-act')) {
-            thirdStageGreenDot.textContent = (greenDeckThirdStage.length - 1);
-            greenDeckThirdStage.shift()
-        } else if (greenDeckThirdStage.length === 0 && brownDeckThirdStage != 0) {
-            thirdStageBrownDot.textContent = (brownDeckThirdStage.length - 1);
-            brownDeckThirdStage.shift()
-        } else if (brownDeckThirdStage.length === 0 && blueDeckThirdStage != 0) {
-            thirdStageBlueDot.textContent = (blueDeckThirdStage.length - 1);
-            blueDeckThirdStage.shift()
-        };
     }; 
 };
 
