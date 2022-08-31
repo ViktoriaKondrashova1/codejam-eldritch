@@ -82,7 +82,7 @@ shuffleBtn.addEventListener('click', shuffleCardsBtn);
 /// возвращает рандомное число
 
 function getRandomNum(arr) {
-    return Math.floor(Math.random() * (arr.length - 1));
+    return Math.floor(Math.random() * (arr.length));
   };
 
 /// создание колод карт для каждого этапа
@@ -218,7 +218,7 @@ ancientsContainer.onclick = function(event) {
         const secondStageText = document.querySelector('.second');
         const thirdStageText = document.querySelector('.third');
         
-        if (firstStageDeck.length >= 1) {
+        if (firstStageDeck.length > 0) {
             let indexFirst = getRandomNum(firstStageDeck);
             console.log(indexFirst)
             lastCard.style.backgroundImage = `url(${firstStageDeck[indexFirst].cardFace})`;
@@ -237,7 +237,7 @@ ancientsContainer.onclick = function(event) {
             firstStageDeck.splice(indexFirst, 1);
             console.log(firstStageDeck)
             firstStageText.classList.add('stage-text-act');
-        } else if (secondStageDeck.length >= 1) {
+        } else if (secondStageDeck.length > 0) {
             let indexSecond = getRandomNum(secondStageDeck);
             console.log(indexSecond)
             lastCard.style.backgroundImage = `url(${secondStageDeck[indexSecond].cardFace})`;
@@ -257,7 +257,7 @@ ancientsContainer.onclick = function(event) {
             console.log(secondStageDeck)
             firstStageText.classList.remove('stage-text-act');
             secondStageText.classList.add('stage-text-act');
-        } else if (thirdStageDeck.length >= 1) {
+        } else if (thirdStageDeck.length > 0) {
             let indexThird = getRandomNum(thirdStageDeck);
             console.log(indexThird)
             lastCard.style.backgroundImage = `url(${thirdStageDeck[indexThird].cardFace})`;
